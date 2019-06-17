@@ -10,6 +10,9 @@
     "debug": "nodemon --inspect server"
   },
   "keywords": [],
+  "engines": {
+    "node": "11.5.0"
+  },
   "author": "Jonathan Cote",
   "license": "ISC",
   "dependencies": {
