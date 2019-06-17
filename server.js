@@ -21,12 +21,12 @@ app.use(function validateBearerToken(req, res, next) {
     next() 
 })
 
-//   to search for the following endpoitns + query /movie?genre="",  /movie?country="", /movie?avg_vote="" 
+//   to search for the following endpoitns + query /movie?genre=,  /movie?country=, /movie?avg_vote= 
 app.get('/movie', function handleGetMovie(req, res) {
     let response = MOVIES;
 
     if(req.query.genre) {
-        response.filter(movie =>    
+       response = response.filter(movie => 
             movie.genre.toLowerCase().includes(req.query.genre.toLowerCase())
         )
     }
@@ -42,7 +42,7 @@ app.get('/movie', function handleGetMovie(req, res) {
             Number(movie.avg_vote) >= Number(req.query.avg_vote)
         )
     }
-    return res .json(response)
+   res .json(response)
 })
 
 
